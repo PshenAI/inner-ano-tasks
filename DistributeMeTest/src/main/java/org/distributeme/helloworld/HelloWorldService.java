@@ -5,5 +5,5 @@ import org.distributeme.annotation.DistributeMe;
 
 @DistributeMe
 public interface HelloWorldService extends Service {
-    void printMessage(String message);
+    String printMessage(String message);
 }

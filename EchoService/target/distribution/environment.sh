@@ -1,0 +1,1 @@
+/home/velvet/IdeaProjects/Anotheria-Workspace/Onboarding/EchoService/data/environment.sh

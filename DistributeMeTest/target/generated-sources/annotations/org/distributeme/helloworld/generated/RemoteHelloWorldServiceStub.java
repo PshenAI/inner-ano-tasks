@@ -76,11 +76,11 @@ public class RemoteHelloWorldServiceStub implements org.distributeme.helloworld.
 		}
 	}
 
-	public void printMessage(java.lang.String message){
-		printMessage(message, (ClientSideCallContext)null);
-	} //...public void printMessage(java.lang.String message)
+	public java.lang.String printMessage(java.lang.String message){
+		return printMessage(message, (ClientSideCallContext)null);
+	} //...public java.lang.String printMessage(java.lang.String message)
 
-	private void printMessage(java.lang.String message, org.distributeme.core.ClientSideCallContext diMeCallContext){
+	private java.lang.String printMessage(java.lang.String message, org.distributeme.core.ClientSideCallContext diMeCallContext){
 		List __fromServerSide = null;
 		Exception exceptionInMethod = null;
 		// This flag is used by the interceptor logic to mark a request es failed, even it is not.
@@ -115,7 +115,7 @@ public class RemoteHelloWorldServiceStub implements org.distributeme.helloworld.
 						throw (RuntimeException) interceptorResponse.getException();
 					throw new RuntimeException("Interceptor exception",interceptorResponse.getException());
 				case RETURN:
-					return;
+					return (java.lang.String) interceptorResponse.getReturnValue();
 				case CONTINUE:
 					break;
 				case ABORT_AND_FAIL:
@@ -136,7 +136,7 @@ public class RemoteHelloWorldServiceStub implements org.distributeme.helloworld.
 			if (!abortAndFail){
 				__fromServerSide = getDelegate(diMeCallContext.getServiceId()).printMessage(message,  __transportableCallContext);
 				__transportableCallContext.putAll(((HashMap)__fromServerSide.get(1)));
-				return;
+				return (java.lang.String) __fromServerSide.get(0);
 			}
 		}catch(RemoteException e){
 			// handle exceptions properly
@@ -162,7 +162,14 @@ public class RemoteHelloWorldServiceStub implements org.distributeme.helloworld.
 						throw (RuntimeException) interceptorResponse.getException();
 					throw new RuntimeException("Interceptor exception",interceptorResponse.getException());
 				case RETURN:
-					return;
+					return (java.lang.String) interceptorResponse.getReturnValue();
+				case OVERWRITE_RETURN_AND_CONTINUE:
+					if (__fromServerSide == null)
+						throw new AssertionError("Incorrect use of interceptor, there is no return value in this method or it is null");
+					__fromServerSide.set(0, interceptorResponse.getReturnValue());
+					diMeInterceptionContext.setReturnValue(interceptorResponse.getReturnValue());
+					diMeReturnOverriden = true;
+					break;
 				case CONTINUE:
 					break;
 				case ABORT_AND_FAIL:
@@ -176,6 +183,9 @@ public class RemoteHelloWorldServiceStub implements org.distributeme.helloworld.
 					throw new IllegalStateException("Unsupported or unexpected command from interceptor " + interceptorResponse.getCommand()+ " in phase:"+diMeInterceptionContext.getCurrentPhase());
 				} //...switch
 			} //...for
+			// The next check for null of __fromServerSide is unneeded but for security reasons.
+			if (diMeReturnOverriden && __fromServerSide!=null)
+				return (java.lang.String) __fromServerSide.get(0);
 
 		} //...finally
 		// Failing
@@ -185,14 +195,12 @@ public class RemoteHelloWorldServiceStub implements org.distributeme.helloworld.
 				diMeCallContext.setServiceId(failDecision.getTargetService());
 			switch(failDecision.getReaction()){
 				case RETRY:
-					printMessage(message, diMeCallContext.increaseCallCount());
-					return;
+					return printMessage(message, diMeCallContext.increaseCallCount());
 				case RETRYONCE:
 					// Only retry if its the first call
 					if (!diMeCallContext.isFirstCall())
 						break;
-					printMessage(message, diMeCallContext.increaseCallCount());
-					return;
+					return printMessage(message, diMeCallContext.increaseCallCount());
 				case FAIL:
 				default:
 				// Fail or default is to do nothing at all and let the request fail

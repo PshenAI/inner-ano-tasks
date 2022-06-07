@@ -8,6 +8,6 @@ public class RemoteClient {
         HelloWorldService service = ServiceLocator.getRemote(HelloWorldService.class);
         String message = "Hello world at: "+new Date(System.currentTimeMillis());
         System.out.println("Server should print out following message now: " + message);
-        service.printMessage(message);
+        System.out.println(service.printMessage(message));
     }
 }

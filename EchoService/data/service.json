@@ -1,0 +1,17 @@
+{
+  "profiles": [
+    {
+      "name": "dev",
+      "description": "Is TEST OMH"
+    }
+  ],
+
+  "services" : [
+    {
+      "name": "echoservice",
+      "startClass": "org.distributeme.generated.EchoServer",
+      "rmiPort": 9228,
+      "profiles": ["dev"]
+    }
+  ]
+}

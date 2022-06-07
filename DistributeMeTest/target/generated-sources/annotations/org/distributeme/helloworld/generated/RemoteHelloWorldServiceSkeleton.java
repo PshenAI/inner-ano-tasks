@@ -115,8 +115,9 @@ public class RemoteHelloWorldServiceSkeleton implements RemoteHelloWorldService 
 		printMessageCCStrategy_javalangStringmessage.notifyServerSideCallStarted(diMeCallContext);
 
 		try{
-			implementation.printMessage(message);
-			__return.add(org.distributeme.core.util.VoidMarker.VOID);
+			Object __result = implementation.printMessage(message);
+			__return.add(__result);
+			diMeInterceptionContext.setReturnValue(__result);
 			__return.add(diMeCallContext.getTransportableCallContext());
 			diMeInterceptionContext.setCurrentPhase(InterceptionPhase.AFTER_SERVANT_CALL);
 			for (ServerSideRequestInterceptor interceptor : diMeInterceptors){
