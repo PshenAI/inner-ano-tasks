@@ -1,0 +1,4 @@
+[0.001s][warning][gc] -Xloggc is deprecated. Will use -Xlog:gc:logs/gc.log instead.
+[0.002s][warning][gc] -XX:+PrintGCDetails is deprecated. Will use -Xlog:gc* instead.
+Server org_distributeme_helloworld_HelloWorldService is up and ready.
+Hello world at Tue Jun 07 13:00:13 EEST 2022

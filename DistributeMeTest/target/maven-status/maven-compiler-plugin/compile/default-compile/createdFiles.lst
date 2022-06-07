@@ -1,3 +1,12 @@
-org/distributeme/helloworld/HelloWorldService.class
-org/distributeme/helloworld/RemoteClient.class
+org/distributeme/helloworld/generated/HelloWorldServer.class
+org/distributeme/helloworld/generated/RemoteHelloWorldService.class
+org/distributeme/helloworld/generated/RemoteHelloWorldServiceSkeleton$1.class
 org/distributeme/helloworld/HelloWorldServiceImpl.class
+org/distributeme/helloworld/generated/HelloWorldServiceConstants.class
+org/distributeme/helloworld/RemoteClient.class
+org/distributeme/helloworld/HelloWorldService.class
+org/distributeme/helloworld/generated/RemoteHelloWorldServiceStub.class
+org/distributeme/helloworld/generated/RemoteHelloWorldServiceSkeleton.class
+org/distributeme/helloworld/generated/RemoteHelloWorldServiceFactory.class
+org/distributeme/helloworld/generated/RemoteHelloWorldServiceStub$1.class
+org/distributeme/helloworld/generated/HelloWorldServer$1.class

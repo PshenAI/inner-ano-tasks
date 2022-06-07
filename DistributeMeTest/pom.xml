@@ -2,38 +2,169 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>net.anotheria</groupId>
+        <artifactId>parent</artifactId>
+        <version>2.13</version>
+    </parent>
 
-    <groupId>org.example</groupId>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.distributeme.helloworld</groupId>
     <artifactId>DistributeMeTest</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <distributeme-version>2.3.6</distributeme-version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>net.anotheria</groupId>
-            <artifactId>distributeme-support</artifactId>
-            <version>2.3.8</version>
+            <artifactId>distributeme-generator</artifactId>
+            <version>${distributeme-version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>blowfish</groupId>
+                    <artifactId>blowfish</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.json</groupId>
+                    <artifactId>json</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20220320</version>
         </dependency>
         <dependency>
             <groupId>net.anotheria</groupId>
-            <artifactId>distributeme-generator</artifactId>
-            <version>2.3.8</version>
+            <artifactId>distributeme-support</artifactId>
+            <version>${distributeme-version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.json</groupId>
+                    <artifactId>json</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>net.anotheria</groupId>
             <artifactId>distributeme-agents</artifactId>
-            <version>2.3.8</version>
-        </dependency>
-        <dependency>
-            <groupId>net.anotheria</groupId>
-            <artifactId>ano-prise</artifactId>
-            <version>2.2.1</version>
+            <version>${distributeme-version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.json</groupId>
+                    <artifactId>json</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <annotationProcessors>
+                        <annotationProcessor>org.distributeme.processors.GeneratorProcessorFactory</annotationProcessor>
+                    </annotationProcessors>
+                    <verbose>true</verbose>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>net.anotheria</groupId>
+                <artifactId>distributeme-maven-plugin</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>service</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <definitionsFile>data/service.json</definitionsFile>
+                    <pathToEnvironmentSh>/home/velvet/IdeaProjects/Anotheria-Workspace/Onboarding/DistributeMeTest/data/environment.sh</pathToEnvironmentSh>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>target/distribution/lib/</outputDirectory>
+                            <!-- other configurations here -->
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>copy</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>${project.groupId}</groupId>
+                                    <artifactId>${project.artifactId}</artifactId>
+                                    <version>${project.version}</version>
+                                    <type>jar</type>
+                                    <overWrite>true</overWrite>
+                                    <outputDirectory>target/distribution/lib/</outputDirectory>
+                                </artifactItem>
+                            </artifactItems>
+                            <!-- other configurations here -->
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.2</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <!-- here the phase you need -->
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/distribution/conf</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/resources</directory>
+                                    <filtering>false</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

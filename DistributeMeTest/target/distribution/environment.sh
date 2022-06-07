@@ -1,0 +1,1 @@
+/home/velvet/IdeaProjects/Anotheria-Workspace/Onboarding/DistributeMeTest/data/environment.sh

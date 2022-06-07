@@ -1,0 +1,7 @@
+WARNING: A terminally deprecated method in java.lang.System has been called
+WARNING: System::setSecurityManager has been called by org.distributeme.helloworld.generated.HelloWorldServer (file:/home/velvet/IdeaProjects/Anotheria-Workspace/Onboarding/DistributeMeTest/target/distribution/lib/DistributeMeTest-1.0-SNAPSHOT.jar)
+WARNING: Please consider reporting this to the maintainers of org.distributeme.helloworld.generated.HelloWorldServer
+WARNING: System::setSecurityManager will be removed in a future release
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.

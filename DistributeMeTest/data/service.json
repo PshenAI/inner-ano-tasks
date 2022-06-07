@@ -1,0 +1,17 @@
+{
+  "profiles": [
+    {
+      "name": "dev",
+      "description": "Is TEST OMH"
+    }
+  ],
+
+  "services" : [
+    {
+      "name": "helloworldservice",
+      "startClass": "org.distributeme.helloworld.generated.HelloWorldServer",
+      "rmiPort": 9228,
+      "profiles": ["dev"]
+    }
+  ]
+}
