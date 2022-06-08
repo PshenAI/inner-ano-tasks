@@ -1,2 +1,10 @@
-Error: Could not find or load main class org.distributeme.generated.EchoServer
-Caused by: java.lang.ClassNotFoundException: org.distributeme.generated.EchoServer
+WARNING: A terminally deprecated method in java.lang.System has been called
+WARNING: System::setSecurityManager has been called by org.distributeme.generated.EchoServer (file:/home/velvet/IdeaProjects/Anotheria-Workspace/Onboarding/EchoService/target/distribution/lib/EchoService-1.0-SNAPSHOT.jar)
+WARNING: Please consider reporting this to the maintainers of org.distributeme.generated.EchoServer
+WARNING: System::setSecurityManager will be removed in a future release
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+log4j:WARN No appenders could be found for logger (org.configureme.mbean.util.MBeanRegisterUtil).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.

@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+  registry:
+    image: dvayanu/distributemeregistry:latest
+    ports:
+      - '9229:9229'
+#  server:
+#    image: echoservice:latest

@@ -8,7 +8,7 @@ public class RemoteClient {
         Thread thread = new Thread(Thread.currentThread());
         while(true){
             synchronized (thread){
-                thread.wait(5000);
+                thread.wait(3000);
             }
             System.out.println("Process took: " +
                     (service.sendTime(System.currentTimeMillis()) - System.currentTimeMillis()));

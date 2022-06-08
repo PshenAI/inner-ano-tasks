@@ -1,2 +1,5 @@
-[0.000s][warning][gc] -Xloggc is deprecated. Will use -Xlog:gc:logs/gc.log instead.
-[0.001s][warning][gc] -XX:+PrintGCDetails is deprecated. Will use -Xlog:gc* instead.
+[0.001s][warning][gc] -Xloggc is deprecated. Will use -Xlog:gc:logs/gc.log instead.
+[0.002s][warning][gc] -XX:+PrintGCDetails is deprecated. Will use -Xlog:gc* instead.
+Server org_distributeme_EchoService is up and ready.
+1654700922701
+1654700927864

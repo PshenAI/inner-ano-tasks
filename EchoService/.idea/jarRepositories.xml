@@ -12,14 +12,54 @@
       <option name="url" value="https://repo.maven.apache.org/maven2" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="anotheria-nexus" />
+      <option name="name" value="anotheria-nexus" />
+      <option name="url" value="https://nexus.anotheria.net/nexus/content/groups/public" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="sonatype" />
+      <option name="name" value="sonatype" />
+      <option name="url" value="https://oss.sonatype.org/content/groups/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="java.net" />
+      <option name="name" value="java.net" />
+      <option name="url" value="https://maven.java.net/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="central" />
       <option name="name" value="Maven Central repository" />
       <option name="url" value="https://repo1.maven.org/maven2" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="portalkit-snapshot" />
+      <option name="name" value="portalkit-snapshot" />
+      <option name="url" value="https://repository.anotheria.net/content/repositories/portalkit-snapshots/" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="jboss.community" />
       <option name="name" value="JBoss Community repository" />
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="MTRepo" />
+      <option name="name" value="MTRepo" />
+      <option name="url" value="http://sdmxsource.metadatatechnology.com/nexus/content/repositories/releases" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="central" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="ano-commercial" />
+      <option name="name" value="ano-commercial" />
+      <option name="url" value="https://repository.anotheria.net/content/groups/public" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="portalkit-release" />
+      <option name="name" value="portalkit-release" />
+      <option name="url" value="https://repository.anotheria.net/content/repositories/portalkit-releases/" />
     </remote-repository>
   </component>
 </project>

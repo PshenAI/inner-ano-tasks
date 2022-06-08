@@ -1,4 +1,12 @@
 org/distributeme/EchoService.class
-org/distributeme/RemoteClient.class
-org/distributeme/generated/RemoteEchoService.class
+org/distributeme/generated/EchoServer$1.class
+org/distributeme/generated/RemoteEchoServiceStub$1.class
+org/distributeme/generated/EchoServiceConstants.class
+org/distributeme/generated/EchoServer.class
 org/distributeme/EchoServiceImpl.class
+org/distributeme/generated/RemoteEchoServiceStub.class
+org/distributeme/RemoteClient.class
+org/distributeme/generated/RemoteEchoServiceFactory.class
+org/distributeme/generated/RemoteEchoServiceSkeleton$1.class
+org/distributeme/generated/RemoteEchoService.class
+org/distributeme/generated/RemoteEchoServiceSkeleton.class
