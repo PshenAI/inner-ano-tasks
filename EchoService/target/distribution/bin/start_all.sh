@@ -2,7 +2,7 @@
 source environment.sh
 echo current profile: $DISTRIBUTEME_PROFILE
 profile_found="false"
-SERVICES_dev="echoservice "
+SERVICES_dev="echoservice echoservice1 "
 
 if [ "dev" = "$DISTRIBUTEME_PROFILE" ]; then
   profile_found="true"

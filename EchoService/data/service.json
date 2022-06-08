@@ -11,6 +11,14 @@
       "name": "echoservice",
       "startClass": "org.distributeme.generated.EchoServer",
       "rmiPort": 9228,
+      "jvmOptions": "-XX:+IgnoreUnrecognizedVMOptions",
+      "profiles": ["dev"]
+    },
+    {
+      "name": "echoservice1",
+      "startClass": "org.distributeme.generated.EchoServer",
+      "rmiPort": 9227,
+      "jvmOptions": "-DdimeRegistrationNameProvider=org.distributeme.core.failing.Failover -XX:+IgnoreUnrecognizedVMOptions",
       "profiles": ["dev"]
     }
   ]
